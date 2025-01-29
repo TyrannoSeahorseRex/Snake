@@ -103,4 +103,28 @@ def move():
     snake.x += velocityX * TILE_SIZE
     snake.y += velocityY * TILE_SIZE
 
+def draw():
+    global snake, food, snake_body, game_over, score
+    move()
 
+    canvas.delete("all")
+
+    #draw food
+    canvas.create_rectangle(food.x, food.y, food.x + TILE_SIZE, food.y + TILE_SIZE, fill = 'red')
+
+    #draw snake
+    canvas.create_rectangle(snake.x, snake.y, snake.x + TILE_SIZE, snake.y + TILE_SIZE, fill = 'lime green')
+
+    for tile in snake_body:
+        canvas.create_rectangle(tile.x, tile.y, tile.x + TILE_SIZE, tile.y + TILE_SIZE, fill = 'lime green')
+
+    if (game_over):
+        canvas.create_text(WINDOW_WIDTH/2, WINDOW_HEIGHT/2, font = "Arial 20", text = f"Game Over! Please refresh. Your Score: {score}", fill = "white")
+    else:
+        canvas.create_text(30, 20, font = "Arial 10", text = f"Score: {score}", fill = "white")
+    
+    window.after(100, draw) #call draw again every 100ms (1/10 of a second) = 10 frames per second
+
+draw()
+window.bind("<KeyRelease>", change_direction) #when you press on any key and then let go
+window.mainloop() #used for listening to window events like key presses
