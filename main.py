@@ -30,3 +30,15 @@ screen_height = window.winfo_screenheight()
 
 window_x = int((screen_width/2) - (window_width/2))
 window_y = int((screen_height/2) - (window_height/2))
+
+#format "(w)x(h)+(x)+(y)"
+window.geometry(f"{window_width}x{window_height}+{window_x}+{window_y}")
+
+#initialize game
+snake = Tile(TILE_SIZE * 5, TILE_SIZE * 5) #single tile, snake's head
+food = Tile(TILE_SIZE * 10, TILE_SIZE * 10)
+velocityX = 0
+velocityY = 0
+snake_body = [] #multiple snake tiles
+game_over = False
+score = 0
