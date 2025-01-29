@@ -42,3 +42,28 @@ velocityY = 0
 snake_body = [] #multiple snake tiles
 game_over = False
 score = 0
+
+#game loop
+def change_direction(e): #e = event
+    # print(e)
+    # print(e.keysym)
+
+    global velocityX, velocityY, game_over, score
+    if (game_over):
+        return #edit this code to reset game variables to play again
+
+    if (e.keysym == "Up" and velocityY != 1):
+        velocityX = 0
+        velocityY = -1
+        
+    elif (e.keysym == "Down" and velocityY != -1):
+        velocityX = 0
+        velocityY = 1
+
+    elif (e.keysym == "Left" and velocityX != 1):
+        velocityX = -1
+        velocityY = 0
+
+    elif (e.keysym == "Right" and velocityX != -1):
+        velocityX = 1
+        velocityY = 0
