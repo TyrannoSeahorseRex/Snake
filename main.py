@@ -17,3 +17,7 @@ class Tile:
 window = tkinter.Tk()
 window.title("TyrannoSeahorse Rex Evolvee")
 window.resizable(False, False)
+
+canvas = tkinter.Canvas(window, bg = "black", width = WINDOW_WIDTH, height = WINDOW_HEIGHT, borderwidth = 0, highlightthickness = 0)
+canvas.pack()
+window.update()
