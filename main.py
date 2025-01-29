@@ -12,3 +12,8 @@ class Tile:
     def __init__(self, x, y):
         self.x = x
         self.y = y
+
+#game window
+window = tkinter.Tk()
+window.title("TyrannoSeahorse Rex Evolvee")
+window.resizable(False, False)
